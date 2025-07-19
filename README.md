@@ -10,8 +10,8 @@
 
 1. **Clone the repository:**
    ```sh
-   git clone https://github.com/<your-username>/<repo-name>.git
-   cd <repo-name>
+   git clone https://github.com/Ayush-Khandelwal-007/pack-assignment.git
+   cd pack-assignment
    ```
 
 2. **Set up your `.env` file:**
