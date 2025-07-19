@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  # db:
+  #   image: postgres:15
+  #   restart: always
+  #   environment:
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: postgres
+  #     POSTGRES_DB: postgres
+  #   ports:
+  #     - '5432:5432'
+  #   volumes:
+  #     - postgres_data:/var/lib/postgresql/data
+  app:
+    build: .
+    command: npm run dev -- --host
+    ports:
+      - '5173:5173'
+    volumes:
+      - .:/app
+      - /app/node_modules
+    env_file:
+      - .env
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('./src/lib/db-check').testDbConnection()"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    # depends_on:
+    #   - db
+volumes:
+  postgres_data:

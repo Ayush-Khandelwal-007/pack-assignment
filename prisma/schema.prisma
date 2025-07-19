@@ -1,0 +1,24 @@
+generator client {
+  provider      = "prisma-client-js"
+  binaryTargets = ["native", "linux-musl-arm64-openssl-3.0.x"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Resource {
+  id          Int      @id @default(autoincrement())
+  title       String   @db.VarChar(200)
+  description String   @db.VarChar(1000)
+  category    String
+  language    String
+  provider    String
+  roles       String
+  filePath    String
+  fileType    String
+  uploadedBy  String
+  viewCount   Int      @default(0)
+  createdAt   DateTime @default(now())
+}
