@@ -31,7 +31,7 @@
    docker compose up --build app
    ```
 
-4. **Run database migrations:**
+4. **Run database migrations (If required):**
    ```sh
    docker compose exec app npx prisma migrate deploy
    # or for development
