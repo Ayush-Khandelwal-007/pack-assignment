@@ -22,10 +22,13 @@
 </script>
 
 <div class="flex flex-col md:flex-row gap-8 p-8">
-  <div class="w-full md:w-2/3 mx-auto">
+  <div class="w-full mx-auto">
     <div class="flex justify-between items-center mb-4">
       <h2 class="text-xl font-bold">Uploaded Resources</h2>
-      <button class="px-4 py-2 rounded font-bold bg-orange-500 text-white hover:bg-orange-600" on:click={openDialog}>Add Resource</button>
+      <button class="px-4 py-2 rounded font-bold bg-orange-500 text-white hover:bg-orange-600 flex items-center gap-2" on:click={openDialog}>
+        <svg width="18" height="18" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:inline-block;vertical-align:middle;"><path d="M10 4v12m6-6H4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+        Add Resource
+      </button>
     </div>
     <ResourceTable {resources} />
   </div>

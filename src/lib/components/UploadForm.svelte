@@ -120,7 +120,18 @@
   </div>
 
   <label for="file" class="font-medium">File*</label>
-  <input id="file" class="w-full border rounded px-3 py-2 mb-2" type="file" accept=".pdf,.txt,.mp4,.ppt,.pptx,.doc,.docx" on:change={e => file = (e.target as HTMLInputElement).files?.[0] ?? null} required />
+  {#if !file}
+    <label class="file-upload-btn">
+      <input id="file" class="file-input" type="file" accept=".pdf,.txt,.mp4,.ppt,.pptx,.doc,.docx" on:change={e => file = (e.target as HTMLInputElement).files?.[0] ?? null} required />
+      <span>Select file</span>
+    </label>
+    <span class="file-upload-placeholder">No file selected*</span>
+  {:else}
+    <div class="file-selected">
+      <span class="file-name">{file.name}</span>
+      <button type="button" class="remove-file-btn" on:click={() => file = null} aria-label="Remove file">&times;</button>
+    </div>
+  {/if}
 
   {#if error}
     <div class="text-red-600 text-sm">{error}</div>
