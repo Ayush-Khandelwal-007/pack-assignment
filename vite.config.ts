@@ -1,7 +1,12 @@
-import tailwindcss from '@tailwindcss/vite';
 import { sveltekit } from '@sveltejs/kit/vite';
-import { defineConfig } from 'vite';
 
-export default defineConfig({
-	plugins: [tailwindcss(), sveltekit()]
-});
+/** @type {import('vite').UserConfig} */
+export default {
+  plugins: [sveltekit()],
+  server: {
+    allowedHosts: [
+      'pack-assignment.onrender.com',
+      'localhost'
+    ]
+  }
+};
